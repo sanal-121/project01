@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+ 
+$body-color :#fff;
+$base-font-color: #000;
+$dark_gray:#272727;
+$colorRed: #DD5A6A;
+$t_color: #22B78E;
+$lightGreay: #ECECFF!important;
+$lightGreay2: #E5EAFF!important;
+$gray:rgb(201, 201, 201);
+$c_drakblue: #1D5AA6;
+$transperentBlack: rgba(255, 255, 255, 0.21)!important;
+$c_blue: #F9F9FF;
+$base-font: 'Montserrat', sans-serif;
+$base-font-2: 'Titillium Web', sans-serif;
+$font-family01: 'Arial', sans-serif;
+$bg-gradient:  linear-gradient(to right, #2EC4B8 0%, #6078EA 100%);
+$border_radius: (
+  "b5" : 5px,
+  "b10" : 10px,
+  "b45" : 45px,
+);
+
+body
+{
+  background: $body-color;
+  color: $base-font-color;
+  font-family: $font-family01;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+}
+.fontFamily-1{ font-family: $base-font-2;}
+.baseFont{ font-family: $base-font;}
+
+.shadowStlye{box-shadow: 3px 5px 29px 0 rgba(187,165, 228,0.1);}
+.shadowStlye2{box-shadow: 9px 8px 27px 0 rgba(0, 0, 0, 0.04);}
+.shadowStlye3{box-shadow: 1px 4px 10px 2px rgba(0, 0, 0, 0.07);}
+
+
+.titleColor{color:$t_color;}
+.subtitleColor{color:$c_drakblue;}
+.grayColor{color:$gray};
+.bg-red{background-color: $colorRed;}
+.bg_blue{background-color: $c_drakblue;}
+.bg-gradient01{ background: $bg-gradient;}
+.bg-lightBlue{ background-color: $c_blue;}
+.bg_darkGray{background-color: $dark_gray;}
+.border-radius-none{border-radius: 0;}
+.border_radius_5{border-radius: map-get($border_radius, b5 );}
+
+.border_custom_color { border-color: $lightGreay;}
+.border_custom_color2 { border-color: $lightGreay2;}
+.border_custom_color3 { border-color: $transperentBlack;}
+
+.home_slider01{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: url(../img/Banner_mage.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  min-height: 450px;
+}
+.form-custom{
+  padding: 15px 25px;
+  border-radius: 0;
+  font-size: 12px;
+}
+.form_st01{ max-width: 365px;}
+
+ul.list01 li {position: relative;}
+ul.list01 li:before {
+  content: url(../img/hospital3.png);
+  position: absolute;
+  left: -30px;
+  top: 3px;
+}
+ul.list02 li {position: relative;}
+ul.list02 li:before {
+  content: url(../img/double-tick-indicator.png);
+  position: absolute;
+  left: -30px;
+  top: -1px;
+}
+
+.faq {
+	&__item {
+		padding: 20px;
+		margin-bottom: 20px;
+		border: 1px solid #f2f2f2;
+		border-radius: 4px;
+		box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.06);
+	}
+	&__body {
+		display: none;
+	}
+	&__title {
+		cursor: pointer;
+		&:after {
+			position: absolute;
+      content: "";
+      top: 9px;
+      right: 7px;
+      width: 0;
+      height: 0;
+      border: 9px solid transparent;
+      border-color: $c_drakblue transparent transparent transparent;
+      transition: 0.3s;
+		}
+		&.active {
+			color: $t_color;
+			&:after {
+				transform: rotate(-180deg);
+        top: -2px;
+        border-color: $t_color transparent transparent transparent;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.arrow_outer01
+{   cursor: pointer;
+    width: 28px;
+    height: 28px;
+}
+.arrow_outer01 i{font-size: 20px;}
+.testmonial_box
+{
+  position: relative;
+}
+.testmonial_box:after{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  content: url(../img/”.png);
+}
+.underline_prop{position: relative;}
+@mixin underline_propmix {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    bottom: 0;
+}
+.underline_prop::after{
+
+    @include underline_propmix;
+    left: calc(50% - 25px);
+    background-color:$t_color;
+}
+.underline_prop01{@extend .underline_prop;}
+.underline_prop01::after{
+  @include underline_propmix;
+    left: 0;
+    background-color:$gray;
+}
+.scrollTop_btn{
+  position: fixed;
+    right: 80px;
+    bottom: 50px;
+    z-index: 1;
+}
+
+
+@media only screen and (max-width: 991px){  
+  .form_st01{ max-width: 100%;}
+}
